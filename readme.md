@@ -1,6 +1,6 @@
 # Statens wikibidrag
 
-Sporer Wikipedia bidrag fra statslige organisasjoner (det vil si, Stortinget, Miljødirektoratet osv)
+Sporer Wikipedia bidrag fra statlige organisasjoner (det vil si, Stortinget, Miljødirektoratet osv)
 
 ## Oppsett
 
