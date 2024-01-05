@@ -1,0 +1,15 @@
+services:
+
+  statenswikibidrag:
+      container_name: statenswikibidrag
+      build: .
+      restart: always
+      ports:
+          - "127.0.0.1:8089:8080"
+      volumes:
+          - "./db/:/app/database"
+      healthcheck:
+        test: wget -nv --tries=1 http://127.0.0.1:8080/healthcheck
+        interval: 5m
+        timeout: 5s
+        retries: 2

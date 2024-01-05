@@ -1,0 +1,9 @@
+# Vil ikke inkludere databasen med i Git
+statens-wikibidrag.db
+db.db
+
+__pycache__
+
+venv/
+
+.db-journal

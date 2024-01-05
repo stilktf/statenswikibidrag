@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Statens wikibedrag</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main>
+            <h1>Statens wikibedrag</h1>
+            <p>Et lite nettsted som sporer endringer på Wikipedia av Stortinget, Miljødirektoratet og andre statlige organisasjoner.<br>Flagget indikerer hvilken Wikipedia bidraget ble gjort på.</p>
+            <a href="{{ url_for('json')}}">Også tilgjengelig i JSON</a> / <a href="https://github.com/stilktf/statenswikibedrag">GitHub</a>
+            <p>Antall endringer gjort av staten: {{ count }}</p>
+            <div class="stuffcontainer">
+                {% if stuff %}
+                {% for edit in stuff%}
+                    <a class="stuff" href="{{edit.link}}">
+                        <p>{{ edit.date }} • Artikkel {{edit.title}} • {% if edit.wiki == "no" %}🇳🇴{% endif %}{% if edit.wiki == "en" %}🇬🇧{% endif %}</p>
+                        {% if edit.comment %}
+                            <p>Kommentar: {{edit.comment}}</p>
+                        {% endif %}
+                        <p>Bidratt av {{edit.body}}</p>
+                    </a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </main>
+    </body>
+</html>
